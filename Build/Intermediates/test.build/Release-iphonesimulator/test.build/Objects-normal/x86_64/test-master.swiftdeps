@@ -1,0 +1,7 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "19a261b2f260f5f41bf31af39923e0e7"
+build_time: [540366545, 324958000]
+inputs:
+  "/Users/davidlam/Desktop/test/test/DetailViewController.swift": [9223372036854775807, 0]
+  "/Users/davidlam/Desktop/test/test/MasterViewController.swift": [9223372036854775807, 0]
+  "/Users/davidlam/Desktop/test/test/AppDelegate.swift": [9223372036854775807, 0]
