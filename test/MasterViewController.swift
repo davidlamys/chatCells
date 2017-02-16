@@ -3,7 +3,7 @@
 //  test
 //
 //  Created by David Lam on 14/2/17.
-//  Copyright © 2017 Holmusk. All rights reserved.
+//  Copyright © 2017. All rights reserved.
 //
 
 import UIKit
@@ -12,55 +12,58 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
-    var configuartors: [DetailViewConfigurator]!
+    var configuartors: [DetailViewConfigurator] = [DetailViewConfigurator]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-        self.navigationItem.rightBarButtonItem = addButton
-        if let split = self.splitViewController {
-            let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
         
-        configuartors = [DetailViewConfigurator(showImage: true, textType: .null, messageType:.received),
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
+        
+        let nib = UINib(nibName: "IncomingCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "IncomingCell")
+        tableView.register(nib, forCellReuseIdentifier: "IncomingTextCell")
+ 
+        let nib2 = UINib(nibName: "OutgoingCell", bundle: nil)
+        tableView.register(nib2, forCellReuseIdentifier: "OutgoingCell")
+        tableView.register(nib2, forCellReuseIdentifier: "OutgoingTextCell")
+        
+        let base = [
                          DetailViewConfigurator(showImage: true, textType: .shortText, messageType:.received),
                          DetailViewConfigurator(showImage: true, textType: .mediumText, messageType:.received),
                          DetailViewConfigurator(showImage: true, textType: .longText, messageType:.received),
                          
-                         DetailViewConfigurator(showImage: false, textType: .null, messageType:.received),
                          DetailViewConfigurator(showImage: false, textType: .shortText, messageType:.received),
                          DetailViewConfigurator(showImage: false, textType: .mediumText, messageType:.received),
                          DetailViewConfigurator(showImage: false, textType: .longText, messageType:.received),
                          
-                         DetailViewConfigurator(showImage: true, textType: .null, messageType:.sent),
                          DetailViewConfigurator(showImage: true, textType: .shortText, messageType:.sent),
                          DetailViewConfigurator(showImage: true, textType: .mediumText, messageType:.sent),
                          DetailViewConfigurator(showImage: true, textType: .longText, messageType:.sent),
-                         DetailViewConfigurator(showImage: false, textType: .null, messageType:.sent),
+                         
                          DetailViewConfigurator(showImage: false, textType: .shortText, messageType:.sent),
                          DetailViewConfigurator(showImage: false, textType: .mediumText, messageType:.sent),
                          DetailViewConfigurator(showImage: false, textType: .longText, messageType:.sent)
-        ]
+            ]
+        
+        for _ in 0..<50 {
+            configuartors += base
+        }
+        
+        tableView.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        self.tableView.insertRows(at: [indexPath], with: .automatic)
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let lastRow = self.configuartors.count - 1
+        let indexPath = IndexPath(row: lastRow, section: 0)
+        self.tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.bottom, animated: true)
     }
 
     // MARK: - Segues
@@ -68,7 +71,7 @@ class MasterViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = configuartors[indexPath.row] as! DetailViewConfigurator
+                let object = configuartors[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.configurator = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
@@ -88,27 +91,39 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-        let object = configuartors[indexPath.row]
-        cell.textLabel!.text = object.description()
-        return cell
-    }
-
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        
+        let configuartor = configuartors[indexPath.row]
+        
+        if configuartor.messageType == .received {
+            if configuartor.showImage {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "IncomingCell", for: indexPath) as! IncomingCell
+                cell.configurator = configuartor
+                cell.configureCell()
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "IncomingTextCell", for: indexPath) as! IncomingCell
+                cell.configurator = configuartor
+                cell.configureCell()
+                return cell
+            }
+        } else {
+            if configuartor.showImage {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "OutgoingCell", for: indexPath) as! OutgoingCell
+            cell.configuator = configuartor
+            cell.configureView()
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "OutgoingTextCell", for: indexPath) as! OutgoingCell
+                cell.configuator = configuartor
+                cell.configureView()
+                cell.removeMediaView()
+                return cell
+            }
+        
         }
+        
     }
-
 
 }
 

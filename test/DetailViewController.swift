@@ -3,7 +3,7 @@
 //  test
 //
 //  Created by David Lam on 14/2/17.
-//  Copyright © 2017 Holmusk. All rights reserved.
+//  Copyright © 2017 . All rights reserved.
 //
 
 import UIKit
@@ -60,8 +60,8 @@ class DetailViewController: UIViewController {
             mediaViewHeight.constant = config.showImage ? 135.0 : 0.0
             mediaViewWidth.constant = config.showImage ? 183.0 : 0.0
             mediaViewTopConstraint.constant = config.showImage ? 8.0 : 0
-            mediaTrailingConstraint.isActive = config.showImage
             
+            mediaTrailingConstraint.isActive = config.showImage
             self.rightAvatarFixedWidthConstraint.isActive = (config.messageType == .sent)
             self.leftAvatarFixedWidthConstraint.isActive = (config.messageType == .received)
             self.bubble.setNeedsLayout()

@@ -3,7 +3,7 @@
 //  test
 //
 //  Created by David Lam on 14/2/17.
-//  Copyright © 2017 Holmusk. All rights reserved.
+//  Copyright © 2017. All rights reserved.
 //
 
 import UIKit

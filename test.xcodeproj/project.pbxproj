@@ -13,6 +13,10 @@
 		15D3A9B11E52B9E80027A2D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D3A9AF1E52B9E80027A2D9 /* Main.storyboard */; };
 		15D3A9B31E52B9E80027A2D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15D3A9B21E52B9E80027A2D9 /* Assets.xcassets */; };
 		15D3A9B61E52B9E80027A2D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15D3A9B41E52B9E80027A2D9 /* LaunchScreen.storyboard */; };
+		15D3A9CC1E52FBE90027A2D9 /* IncomingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D3A9CB1E52FBE90027A2D9 /* IncomingCell.xib */; };
+		15D3A9CE1E52FC1B0027A2D9 /* IncomingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D3A9CD1E52FC1B0027A2D9 /* IncomingCell.swift */; };
+		15D3A9D01E5323DE0027A2D9 /* OutgoingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15D3A9CF1E5323DE0027A2D9 /* OutgoingCell.xib */; };
+		15D3A9D21E53240D0027A2D9 /* OutgoingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D3A9D11E53240D0027A2D9 /* OutgoingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		15D3A9B21E52B9E80027A2D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15D3A9B51E52B9E80027A2D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15D3A9B71E52B9E80027A2D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15D3A9CB1E52FBE90027A2D9 /* IncomingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IncomingCell.xib; sourceTree = "<group>"; };
+		15D3A9CD1E52FC1B0027A2D9 /* IncomingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingCell.swift; sourceTree = "<group>"; };
+		15D3A9CF1E5323DE0027A2D9 /* OutgoingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OutgoingCell.xib; sourceTree = "<group>"; };
+		15D3A9D11E53240D0027A2D9 /* OutgoingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutgoingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +66,12 @@
 			children = (
 				15D3A9A91E52B9E80027A2D9 /* AppDelegate.swift */,
 				15D3A9AB1E52B9E80027A2D9 /* MasterViewController.swift */,
+				15D3A9CD1E52FC1B0027A2D9 /* IncomingCell.swift */,
+				15D3A9D11E53240D0027A2D9 /* OutgoingCell.swift */,
 				15D3A9AD1E52B9E80027A2D9 /* DetailViewController.swift */,
 				15D3A9AF1E52B9E80027A2D9 /* Main.storyboard */,
+				15D3A9CB1E52FBE90027A2D9 /* IncomingCell.xib */,
+				15D3A9CF1E5323DE0027A2D9 /* OutgoingCell.xib */,
 				15D3A9B21E52B9E80027A2D9 /* Assets.xcassets */,
 				15D3A9B41E52B9E80027A2D9 /* LaunchScreen.storyboard */,
 				15D3A9B71E52B9E80027A2D9 /* Info.plist */,
@@ -128,8 +140,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				15D3A9B61E52B9E80027A2D9 /* LaunchScreen.storyboard in Resources */,
+				15D3A9CC1E52FBE90027A2D9 /* IncomingCell.xib in Resources */,
 				15D3A9B31E52B9E80027A2D9 /* Assets.xcassets in Resources */,
 				15D3A9B11E52B9E80027A2D9 /* Main.storyboard in Resources */,
+				15D3A9D01E5323DE0027A2D9 /* OutgoingCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +155,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				15D3A9AE1E52B9E80027A2D9 /* DetailViewController.swift in Sources */,
+				15D3A9CE1E52FC1B0027A2D9 /* IncomingCell.swift in Sources */,
 				15D3A9AC1E52B9E80027A2D9 /* MasterViewController.swift in Sources */,
+				15D3A9D21E53240D0027A2D9 /* OutgoingCell.swift in Sources */,
 				15D3A9AA1E52B9E80027A2D9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,7 +282,7 @@
 				DEVELOPMENT_TEAM = 3UC52MR44U;
 				INFOPLIST_FILE = test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.holmusk.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happylab.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -279,7 +295,7 @@
 				DEVELOPMENT_TEAM = 3UC52MR44U;
 				INFOPLIST_FILE = test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.holmusk.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.happylab.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -304,6 +320,7 @@
 				15D3A9BC1E52B9E80027A2D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

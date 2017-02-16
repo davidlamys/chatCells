@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChatCell" customModule="test" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="312" height="231"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFi-XE-jmH" userLabel="FakeCell">
+                    <rect key="frame" x="0.0" y="0.0" width="312" height="231"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QMu-nJ-CYb" userLabel="leftAvatar">
+                            <rect key="frame" x="8" y="8" width="40" height="215"/>
+                            <color key="backgroundColor" red="1" green="0.42854727079999999" blue="0.32756256569999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="SZ2-rx-3im"/>
+                                <constraint firstAttribute="width" constant="40" id="YjQ-7s-Xew"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rox-Fi-pEX" userLabel="bubble">
+                            <rect key="frame" x="56" y="8" width="200" height="215"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Red_Panda_in_a_Gingko_tree" translatesAutoresizingMaskIntoConstraints="NO" id="waO-sQ-HyV" userLabel="mediaView">
+                                    <rect key="frame" x="8" y="8" width="183" height="135"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="183" id="BQM-Oh-7Zd"/>
+                                        <constraint firstAttribute="height" constant="135" id="KKI-Yd-fQR"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYW-Cq-bko">
+                                    <rect key="frame" x="8" y="151" width="184" height="56"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.9529411793" green="0.68627452850000004" blue="0.13333334029999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="waO-sQ-HyV" secondAttribute="trailing" constant="8" id="LbF-kf-fXN"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WYW-Cq-bko" secondAttribute="trailing" constant="8" id="OWW-5U-6zl"/>
+                                <constraint firstItem="WYW-Cq-bko" firstAttribute="top" secondItem="waO-sQ-HyV" secondAttribute="bottom" constant="8" id="Q9D-ds-y6e"/>
+                                <constraint firstAttribute="trailing" secondItem="WYW-Cq-bko" secondAttribute="trailing" constant="8" id="S2H-c2-Pqr"/>
+                                <constraint firstAttribute="bottom" secondItem="WYW-Cq-bko" secondAttribute="bottom" constant="8" id="WqM-NI-FhW"/>
+                                <constraint firstItem="waO-sQ-HyV" firstAttribute="top" secondItem="Rox-Fi-pEX" secondAttribute="top" constant="8" id="bar-sw-hs3"/>
+                                <constraint firstItem="WYW-Cq-bko" firstAttribute="leading" secondItem="Rox-Fi-pEX" secondAttribute="leading" constant="8" id="cSe-c4-Leq"/>
+                                <constraint firstItem="waO-sQ-HyV" firstAttribute="leading" secondItem="Rox-Fi-pEX" secondAttribute="leading" constant="8" id="l6j-FN-Ond"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wGf-Ry-i5f" userLabel="rightAvatar">
+                            <rect key="frame" x="264" y="8" width="40" height="215"/>
+                            <color key="backgroundColor" red="0.74339908040000002" green="1" blue="0.36296664140000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="65o-qd-btI"/>
+                                <constraint firstAttribute="width" constant="40" id="QvK-Hd-qZh"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.92111240940000005" blue="0.34100161649999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="wGf-Ry-i5f" secondAttribute="trailing" constant="8" id="1Oa-4P-PDv"/>
+                        <constraint firstItem="wGf-Ry-i5f" firstAttribute="top" secondItem="Rox-Fi-pEX" secondAttribute="top" id="8uz-TE-Gia"/>
+                        <constraint firstItem="Rox-Fi-pEX" firstAttribute="left" secondItem="QMu-nJ-CYb" secondAttribute="right" constant="8" id="G2f-ln-L6F"/>
+                        <constraint firstAttribute="bottom" secondItem="Rox-Fi-pEX" secondAttribute="bottom" constant="8" id="JDI-zg-ZpV"/>
+                        <constraint firstItem="wGf-Ry-i5f" firstAttribute="bottom" secondItem="Rox-Fi-pEX" secondAttribute="bottom" id="Pcj-f0-7eB"/>
+                        <constraint firstItem="Rox-Fi-pEX" firstAttribute="top" secondItem="qFi-XE-jmH" secondAttribute="top" constant="8" id="c3D-1g-NO4"/>
+                        <constraint firstItem="wGf-Ry-i5f" firstAttribute="leading" secondItem="Rox-Fi-pEX" secondAttribute="trailing" constant="8" id="dyd-Y9-4ME"/>
+                        <constraint firstItem="QMu-nJ-CYb" firstAttribute="bottom" secondItem="Rox-Fi-pEX" secondAttribute="bottom" id="kkC-gc-RIt"/>
+                        <constraint firstItem="QMu-nJ-CYb" firstAttribute="leading" secondItem="qFi-XE-jmH" secondAttribute="leading" constant="8" id="mJL-gE-sfk"/>
+                        <constraint firstItem="QMu-nJ-CYb" firstAttribute="top" secondItem="Rox-Fi-pEX" secondAttribute="top" id="wfJ-Ad-pxS"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="qFi-XE-jmH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Cav-Rj-h42"/>
+                <constraint firstAttribute="bottom" secondItem="qFi-XE-jmH" secondAttribute="bottom" id="IaX-tu-qxT"/>
+                <constraint firstItem="qFi-XE-jmH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QrT-AK-hOy"/>
+                <constraint firstAttribute="trailing" secondItem="qFi-XE-jmH" secondAttribute="trailing" id="Xm3-kS-kxt"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bubble" destination="Rox-Fi-pEX" id="Xn4-g1-Cbl"/>
+                <outlet property="imageView" destination="waO-sQ-HyV" id="yAN-Gr-CQj"/>
+                <outlet property="leftAvatarFixedWidthConstraint" destination="YjQ-7s-Xew" id="cMC-WF-omJ"/>
+                <outlet property="mediaImageView" destination="waO-sQ-HyV" id="mSE-84-2bW"/>
+                <outlet property="mediaTrailingConstraint" destination="LbF-kf-fXN" id="MtO-Ti-BzC"/>
+                <outlet property="mediaViewHeight" destination="KKI-Yd-fQR" id="dHl-sf-nZE"/>
+                <outlet property="mediaViewTopConstraint" destination="bar-sw-hs3" id="AJF-5q-s8D"/>
+                <outlet property="mediaViewWidth" destination="BQM-Oh-7Zd" id="WN0-Wy-Trb"/>
+                <outlet property="messageTextLabel" destination="WYW-Cq-bko" id="iQc-CM-AHH"/>
+                <outlet property="rightAvatarFixedWidthConstraint" destination="QvK-Hd-qZh" id="qPY-ta-rZ4"/>
+                <outlet property="textLabel" destination="WYW-Cq-bko" id="Xns-XS-iKF"/>
+            </connections>
+            <point key="canvasLocation" x="11" y="-158.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Red_Panda_in_a_Gingko_tree" width="1000" height="750"/>
+    </resources>
+</document>

@@ -165,9 +165,26 @@ SWIFT_CLASS("_TtC4test20DetailViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+SWIFT_CLASS("_TtC4test12IncomingCell")
+@interface IncomingCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified bubbleFrame;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified spacerFixedWidth;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified mediaView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified mediaViewAspectRatio;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified mediaViewHeight;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified mediaViewTrailingConstraint;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified messageTopSpacer;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint * _Null_unspecified messageBottomSpacer;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified messageLabel;
+- (void)prepareForReuse;
+- (void)configureCell;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIStoryboardSegue;
 @class UITableView;
-@class UITableViewCell;
 
 SWIFT_CLASS("_TtC4test20MasterViewController")
 @interface MasterViewController : UITableViewController
@@ -175,16 +192,26 @@ SWIFT_CLASS("_TtC4test20MasterViewController")
 @property (nonatomic, copy) NSArray * _Nonnull objects;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
-- (void)didReceiveMemoryWarning;
-- (void)insertNewObject:(id _Nonnull)sender;
+- (void)viewDidAppear:(BOOL)animated;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (BOOL)tableView:(UITableView * _Nonnull)tableView canEditRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (void)tableView:(UITableView * _Nonnull)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC4test12OutgoingCell")
+@interface OutgoingCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified labelHolder;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified mediaView;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified messageLabel;
+- (void)prepareForReuse;
+- (void)removeMediaView;
+- (void)configureView;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
