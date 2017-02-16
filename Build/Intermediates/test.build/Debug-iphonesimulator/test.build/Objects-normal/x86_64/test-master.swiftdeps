@@ -1,9 +1,0 @@
-version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
-options: "a535643cb6d458474791dd697647ad1a"
-build_time: [540565235, 398381000]
-inputs:
-  "/Users/davidlam/Desktop/test/test/DetailViewController.swift": [540377272, 0]
-  "/Users/davidlam/Desktop/test/test/IncomingCell.swift": [540390102, 0]
-  "/Users/davidlam/Desktop/test/test/MasterViewController.swift": [540565235, 0]
-  "/Users/davidlam/Desktop/test/test/OutgoingCell.swift": [540461761, 0]
-  "/Users/davidlam/Desktop/test/test/AppDelegate.swift": [540368153, 0]
